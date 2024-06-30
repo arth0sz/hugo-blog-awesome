@@ -2,15 +2,17 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title itemprop="name">{{ .Title }} | {{ .Site.Title }}</title>
 <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
 <meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}" />
 <meta itemprop="name" content="{{ .Title }} | {{ .Site.Title }}" />
 <meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}" />
 <meta property="og:site_name" content="{{ .Site.Params.sitename }}" />
+<meta property="og:image" content="{{ .Site.Params.image }}" />
 
 {{/*  Define empty variable description  */}}
-{{- $description := "" -}}
+{{- $description := "A blog containing various write-ups of machines along with articles to showcase my cybersecurity journey." -}}
 
 {{/*  If description is defined in front matter, use it  */}}
 {{- if .Params.description -}}
@@ -37,7 +39,7 @@
   <meta name="twitter:image" content="{{ . | absURL }}" />
   <meta name="twitter:image:src" content="{{ . | absURL }}" />
 {{ else }}
-  <meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}" />
+  <meta itemprop="image" content="{{ "avatar.jpg" | relURL }}" />
   <meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}" />
   <meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}" />
   <meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}" />
